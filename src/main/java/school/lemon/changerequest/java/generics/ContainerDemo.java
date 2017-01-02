@@ -1,4 +1,4 @@
-package java.school.lemon.changerequest.java.generics;
+package school.lemon.changerequest.java.generics;
 
 /**
  * Created by lera on 21.12.16.
