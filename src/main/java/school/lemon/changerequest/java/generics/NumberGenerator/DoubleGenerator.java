@@ -6,14 +6,27 @@ import java.util.Random;
  * Created by lera on 27.12.16.
  */
 public class DoubleGenerator extends NumberGeneratorImp<Double> {
+    Double[] arrayDoubles;
+    Double sum = new Double(0.);
+
+    public DoubleGenerator() {
+        this.arrayDoubles = new Double[10];
+    }
 
     @Override
-    public <Double extends Number> Double[] generateNumbers() {
-        java.lang.Double[] newArray = new java.lang.Double[10];
-        for (int i = 0; i < 10; i++) {
-            Random randNumber = new Random();
-            newArray[i] = randNumber.nextDouble();
+    public Double[] generateNumbers() {
+        Random randNumber = new Random();
+        for (int i = 0; i < arrayDoubles.length; i++) {
+            arrayDoubles[i] = randNumber.nextDouble();
         }
-        return (Double[]) newArray;
+        return arrayDoubles;
+    }
+
+    @Override
+    public Double calcSum() {
+        for (int i = 0; i < arrayDoubles.length; i++) {
+            sum += arrayDoubles[i];
+        }
+        return sum;
     }
 }

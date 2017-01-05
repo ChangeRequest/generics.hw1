@@ -17,11 +17,15 @@ public class PairDemo {
         pairs[1] = pair2;
         pairs[2] = pair3;
         pairs[3] = pair4;
+        System.out.println(PairUtil.compareTo(pair1, pair2));
+        System.out.println(PairUtil.compareTo(pair1, pair3));
+        System.out.println(PairUtil.compareTo(pair4, pair2));
         System.out.println(PairUtil.equals(pair1, pair2));
         System.out.println(PairUtil.equals(pair1, pair3));
         System.out.println(Arrays.asList(PairUtil.getValues(pairs)));
         System.out.println(Arrays.asList(PairUtil.getKeys(pairs)));
         System.out.println(Arrays.asList(PairUtil.countGreaterThan(pairs, 1)));
+        System.out.println(Arrays.asList(PairUtil.countGreaterThan(pairs, 0)));
         System.out.println(Arrays.asList(PairUtil.containsUniqueObjects(pairs)));
     }
 }

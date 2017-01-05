@@ -15,25 +15,22 @@ public final class PairUtil {
 
     public static <K, V> V[] getValues(Pair<K, V>[] pairs) {
         V[] array = (V[]) new Object[pairs.length];
-        int i = 0;
-        for (Pair p : pairs) {
-            array[i] = (V) p.getValue();
-            i++;
+
+        for (int i = 0; i < pairs.length; i++) {
+            array[i] = pairs[i].getValue();
         }
         return array;
     }
 
     public static <K, V> K[] getKeys(Pair<K, V>[] pairs) {
         K[] array = (K[]) new Object[pairs.length];
-        int i = 0;
-        for (Pair p : pairs) {
-            array[i] = (K) p.getKey();
-            i++;
+        for (int i = 0; i < pairs.length; i++) {
+            array[i] = pairs[i].getKey();
         }
         return array;
     }
 
-    public static <K extends Comparable, V> int countGreaterThan(Pair<K, V>[] pairs, K element) {
+    public static <K extends Comparable<K>, V> int countGreaterThan(Pair<K, V>[] pairs, K element) {
         int i = 0;
         for (Pair p : pairs) {
             if (element.compareTo((K) p.getKey()) == -1)
