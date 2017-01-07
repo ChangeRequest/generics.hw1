@@ -1,31 +1,33 @@
 package school.lemon.changerequest.java.generics.NumberGenerator;
 
-import java.util.Arrays;
-
 /**
  * Created by lera on 27.12.16.
  */
 public class Printer<T extends Number> {
+    NumberGenerator<T> numberGenerator;
 
-    NumberGeneratorImp<T> numb;
-
-    public Printer(NumberGeneratorImp numb1) {
-        this.numb = numb1;
+    public Printer(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
-    public T generateAndPrint() {
-        numb.generateNumbers();
-        return numb.calcSum();
+    public void generateAndPrint() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        T[] array = numberGenerator.generateNumbers();
+        SumCalculator s1;
+        if (numberGenerator instanceof DoubleGenerator) {
+            s1 = new SumCalculatorDouble();
+        } else {
+            s1 = new SumCalculatorInteger();
+        }
+        System.out.println(s1.calculateSum(array));
     }
 
-    public static void main(String[] args) {
-        NumberGeneratorImp d = new DoubleGenerator();
-        Printer printer = new Printer(d);
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+        NumberGenerator doubleGenerator = new DoubleGenerator();
+        Printer printer = new Printer(doubleGenerator);
+        printer.generateAndPrint();
 
-        NumberGeneratorImp i = new IntegerGenerator();
-        Printer printer1 = new Printer(i);
-
-        System.out.println(printer.generateAndPrint());
-        System.out.println(printer1.generateAndPrint());
+        NumberGenerator integerGenerator = new IntegerGenerator();
+        Printer printer1 = new Printer(integerGenerator);
+        printer1.generateAndPrint();
     }
 }
