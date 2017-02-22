@@ -12,4 +12,9 @@ public class IntegerGenerator extends NumberGenerator<Integer> {
         }
         return arrayInt;
     }
+
+    @Override
+    public IntegerSumCalculator getSumCalculator() {
+        return new IntegerSumCalculator();
+    }
 }

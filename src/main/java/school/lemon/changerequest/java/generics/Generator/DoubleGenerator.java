@@ -14,11 +14,9 @@ public class DoubleGenerator extends NumberGenerator<Double> {
         return arrayDouble;
     }
 
-    public Double calcSumForDouble(Double[] array) {
-        Double sum = .0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum;
+    @Override
+    public DoubleSumCalculator getSumCalculator() {
+        return new DoubleSumCalculator();
     }
+
 }

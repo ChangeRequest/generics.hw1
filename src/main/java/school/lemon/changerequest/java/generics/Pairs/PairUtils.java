@@ -7,11 +7,7 @@ package school.lemon.changerequest.java.generics.Pairs;
 public final class PairUtils {
 
     public static <K, V> boolean equals(Pair<K, V> pair1, Pair<K, V> pair2) {
-        boolean flag = false;
-        if (pair1.getKey().equals(pair2.getKey()) && pair1.getValue().equals(pair2.getValue())) {
-            flag = true;
-        }
-        return flag;
+        return pair1.getKey().equals(pair2.getKey()) && pair1.getValue().equals(pair2.getValue());
     }
 
     public static <K extends Comparable<K>, V> int compareTo(Pair<K, V> pair1, Pair<K, V> pair2) {
@@ -45,14 +41,12 @@ public final class PairUtils {
     }
 
     public static <K, V> boolean containsUniqueObjects(Pair<K, V>[] pairs) {
-        for (Pair<K, V> pair : pairs) {
-            int i = 1;
-            while (i < pairs.length) {
-                if (pair.getKey().equals(pairs[i].getKey())) return false;
-                i++;
-            }
+        for (int a = 0; a < pairs.length; a++ ){
+        for (int i = a + 1; i < pairs.length; i++) {
+            if (pairs[a].getKey().equals(pairs[i].getKey())) return false;
         }
-        return true;
     }
+        return true;
+}
 
 }

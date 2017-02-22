@@ -1,7 +1,7 @@
 package school.lemon.changerequest.java.generics.Container;
 
 
-public class Container<T> implements ContainerInterface {
+public class Container<T> implements ContainerInterface<T> {
 
     private T[] array;
     private int size;
@@ -29,11 +29,11 @@ public class Container<T> implements ContainerInterface {
     }
 
     @Override
-    public boolean add(Object element, int index) {
+    public boolean add(T element, int index) {
         if (index < 0 || index > size) return false;
         checkSize();
         System.arraycopy(array, index, array, index + 1, size - index);
-        array[index] = (T) element;
+        array[index] = element;
         ++size;
         return true;
     }
@@ -49,9 +49,9 @@ public class Container<T> implements ContainerInterface {
     }
 
     @Override
-    public void add(Object element) {
+    public void add(T element) {
         checkSize();
-        array[size++] = (T) element;
+        array[size++] = element;
 
     }
 
