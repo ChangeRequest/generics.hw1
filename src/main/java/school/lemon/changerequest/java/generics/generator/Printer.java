@@ -2,20 +2,19 @@ package school.lemon.changerequest.java.generics.generator;
 
 import school.lemon.changerequest.java.generics.container.GenericContainer;
 
-public class Printer {
+public class Printer<T extends Number> {
 
-    private NumberGenerator generator;
+    private final NumberGenerator<T> numberGenerator;
 
-    Printer(NumberGenerator gen) {
-        generator = gen;
+    Printer(NumberGenerator<T> numberGenerator) {
+        this.numberGenerator = numberGenerator;
     }
 
     public void generateAndPrint() {
-        GenericContainer<? extends Number> array = generator.generateNumbers();
-        double middle = 0;
+        GenericContainer<? extends Number> array = numberGenerator.generateNumbers();
+        double sum = 0;
         for (int i = 0; i < array.size(); i++)
-            middle += array.get(i).doubleValue();
-        middle /= array.size();
-        System.out.println("Middle = " + middle);
+            sum += array.get(i).doubleValue();
+        System.out.println("Sum = " + sum);
     }
 }

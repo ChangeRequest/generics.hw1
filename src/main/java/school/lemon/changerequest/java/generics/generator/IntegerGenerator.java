@@ -2,7 +2,13 @@ package school.lemon.changerequest.java.generics.generator;
 
 import school.lemon.changerequest.java.generics.container.GenericContainer;
 
-public class IntegerGenerator extends NumberGenerator {
+import java.util.Random;
+
+public class IntegerGenerator extends NumberGenerator<Integer> {
+
+    IntegerGenerator(Random generator) {
+        super(generator);
+    }
 
     @Override
     public GenericContainer<Integer> generateNumbers() {

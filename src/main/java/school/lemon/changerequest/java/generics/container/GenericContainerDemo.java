@@ -9,19 +9,19 @@ public class GenericContainerDemo {
     public static void intDemonstration() {
         System.out.println("Usage of int container");
         GenericContainer<Integer> intContainer = new GenericContainer<Integer>();
-        System.out.println("Empty container:\n" + "Size: " + intContainer.size() + "\n" + intContainer);
+        System.out.println(String.format("Empty container:\nSize: %d\n%s", intContainer.size(), intContainer));
 
         for (int i = 0; i < 10; i++)
             intContainer.add(i);
-        System.out.println("Add 10 elements:\n" + "Size: " + intContainer.size() + "\n" + intContainer);
+        System.out.println(String.format("Add 10 elements:\nSize: %d\n%s", intContainer.size(), intContainer));
 
         intContainer.add(10, 2);
-        System.out.println("Add by index 2:\n" + "Size: " + intContainer.size() + "\n" + intContainer);
+        System.out.println(String.format("Add by index 2:\nSize: %d\n%s", intContainer.size(), intContainer));
 
         boolean removingResult = intContainer.remove(1);
         if (removingResult)
             System.out.println("Removed successful");
-        System.out.println("Remove by index 1:\n" + "Size: " + intContainer.size() + "\n" + intContainer);
+        System.out.println(String.format("Remove by index 1:\nSize: %d\n%s", intContainer.size(), intContainer));
         removingResult = intContainer.remove(15);
         if (!removingResult)
             System.out.println("Incorrect index");
@@ -42,24 +42,24 @@ public class GenericContainerDemo {
             System.out.println("Incorrect index");
 
         intContainer.clear();
-        System.out.println("Cleared container:\n" + "Size: " + intContainer.size() + "\n" + intContainer);
+        System.out.println(String.format("Cleared container:\nSize: %d\n%s", intContainer.size(), intContainer));
     }
 
     public static void stringDemonstration() {
         System.out.println("Usage of String container");
         GenericContainer<String> stringContainer = new GenericContainer<String>();
-        System.out.println("Empty container:\n" + "Size: " + stringContainer.size() + "\n" + stringContainer);
+        System.out.println(String.format("Empty container:\nSize: %d\n%s", stringContainer.size(), stringContainer));
 
         String[] buf = {"one", "two", "three", "four", "five", "six", "seven"};
         for (int i = 0; i < buf.length; i++)
             stringContainer.add(buf[i]);
-        System.out.println("Add 7 elements:\n" + "Size: " + stringContainer.size() + "\n" + stringContainer);
+        System.out.println(String.format("Add 7 elements:\nSize: %d\n%s", stringContainer.size(), stringContainer));
 
         stringContainer.add("ADDED", 3);
-        System.out.println("Add by index 3:\n" + "Size: " + stringContainer.size() + "\n" + stringContainer);
+        System.out.println(String.format("Add by index 3:\nSize: %d\n%s", stringContainer.size(), stringContainer));
 
         stringContainer.remove(0);
-        System.out.println("Remove by index 0:\n" + "Size: " + stringContainer.size() + "\n" + stringContainer);
+        System.out.println(String.format("Remove by index 0:\nSize: %d\n%s", stringContainer.size(), stringContainer));
 
         System.out.println("Get all elements by their indexes");
         for (int i = 0; i < stringContainer.size(); i++)
@@ -67,6 +67,6 @@ public class GenericContainerDemo {
         System.out.println();
 
         stringContainer.clear();
-        System.out.println("Cleared container:\n" + "Size: " + stringContainer.size() + "\n" + stringContainer);
+        System.out.println(String.format("Cleared container:\nSize: %d\n%s", stringContainer.size(), stringContainer));
     }
 }

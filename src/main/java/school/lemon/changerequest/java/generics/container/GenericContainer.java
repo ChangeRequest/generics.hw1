@@ -29,8 +29,7 @@ public class GenericContainer<T> {
     public T get(int index) {
         if (!isIndexCorrect(index))
             return null;
-        else
-            return container[index];
+        return container[index];
     }
 
     public void add(T element) {
@@ -47,8 +46,7 @@ public class GenericContainer<T> {
             System.arraycopy(container, index, tmp, index + 1, containerSize - index);
             container = tmp;
         } else {
-            for (int i = containerSize; i > index; i--)
-                container[i] = container[i - 1];
+            System.arraycopy(container, index, container, index + 1, containerSize - index);
             container[index] = element;
         }
         containerSize++;
